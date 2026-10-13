@@ -1,9 +1,11 @@
-## ODBC integration for Laravel Framework
-This integration allows the use of <b>odbc_*</b> php function with Laravel framework instead of PDO.<br>
-It emulates PDO class used by Laravel.
+## Integrazione ODBC per Laravel - Aggiornata dal re di Valtopina
 
-### # How to install
-> `composer require valtopina/laravel-odbc` To add source in your project
+![Anteprima del progetto](docs/images/preview.jpg)
+
+### # Come installarla
+> `composer require valtopina/laravel-odbc`
+
+### # Il resto non ho voglia di tradurlo
 
 ### # Usage Instructions
 It's very simple to configure:
