@@ -1,7 +1,6 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Andrea
  * Date: 23/02/2018
  * Time: 17:51
  */
@@ -56,17 +55,49 @@ class ODBCPdoStatement extends PDOStatement
         $this->params = [];
     }
 
-    public function fetchAll($how = NULL, $class_name = NULL, $ctor_args = NULL)
+//    public function fetchAll($how = NULL, $class_name = NULL, $ctor_args = NULL)
+//    {
+//        $records = [];
+//        while ($record = $this->fetch()) {
+//            $records[] = $record;
+//        }
+//        return $records;
+//    }
+
+    public function fetchAll(int $mode = \PDO::FETCH_DEFAULT, mixed ...$args): array
     {
         $records = [];
+
+        //Ignoro $mode e $args, perche' odbc_fetch_array() restituisce sempre array associativi...
         while ($record = $this->fetch()) {
             $records[] = $record;
         }
+
         return $records;
     }
 
+    public function setFetchMode(int $mode, mixed ...$args): bool
+    {
+        //Evito di chiamare il metodo nativo di PDOStatement che esplode perche' il PDO interno non e' inizializzato.
+        //Essendo che si utilizzano array associativi tramite odbc_fetch_array(), possiamo ignorare il "mode".
+
+        return true;
+    }
+
+//    public function fetch($option = null, $ignore = null, $ignore2 = null)
+//    {
+//        return odbc_fetch_array($this->statement);
+//    }
+
     public function fetch($option = null, $ignore = null, $ignore2 = null)
     {
-        return odbc_fetch_array($this->statement);
+        $row = odbc_fetch_array($this->statement);
+
+        if ($row === false) {
+            return false; //zero risultati
+        }
+
+        //Cast ad oggetto cosi' da mantenere la struttura in stile PDO
+        return (object) $row;
     }
 }

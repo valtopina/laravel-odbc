@@ -1,16 +1,8 @@
 {
-	"name": "abram/laravel-odbc",
+	"name": "valtopina/laravel-odbc",
 	"description": "ODBC integration for Laravel framework ",
 	"type": "library",
-	"homepage": "https://github.com/andreossido/laravel-odbc",
-	"authors": [
-		{
-			"name": "Andrea Abram",
-			"email": "andreossido@gmail.com",
-			"homepage": "https://github.com/andreossido",
-			"role": "Developer"
-		}
-	],
+	"homepage": "https://github.com/valtopina/laravel-odbc",
 	"require": {
 		"php": "^5.3.3 || >=7.0",
 		"illuminate/database": "~5.1 || >= 6.0",

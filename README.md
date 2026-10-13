@@ -3,7 +3,7 @@ This integration allows the use of <b>odbc_*</b> php function with Laravel frame
 It emulates PDO class used by Laravel.
 
 ### # How to install
-> `composer require abram/laravel-odbc` To add source in your project
+> `composer require valtopina/laravel-odbc` To add source in your project
 
 ### # Usage Instructions
 It's very simple to configure:
@@ -32,10 +32,10 @@ It's very simple to configure:
 You can use Laravel, Eloquent ORM and other Illuminate's components as usual.
 ```PHP
 # Facade
-$books = DB::connection('odbc-connection-name')->table('books')->where('Author', 'Abram Andrea')->get();
+$books = DB::connection('odbc-connection-name')->table('books')->where('Author', 'Example Author')->get();
 
 # ORM
-$books = Book::where('Author', 'Abram Andrea')->get();
+$books = Book::where('Author', 'Example Author')->get();
 ```
 
 ### # Custom getLastInsertId() function
